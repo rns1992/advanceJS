@@ -130,3 +130,72 @@ function scopeExample() {
 | Scope Creation | Function Scope | Block scope | Block Scope |
 | Reassignment | Can be reassigned | Can be reassigned | Can be reassigned |
 | Hoisting | Hoisted | Hoisted | Hoisted |
+
+#### Introducing Arrow Functions
+
+- A way to create functions in ECMA Script 6. It is used in callback chains, promise chains, array methods, in any situation where unregistered functions would be useful.
+- The key difference between arrow functions and normal functions in JavaScript is that arrow functions are anonymous. Arrow functions are not named and not bound to an identifier. This means that an arrow function is created dynamically and is not given a name like normal functions. Arrow functions can however be assigned to a variable to allow for reuse.
+
+- Example.
+
+```
+const fn2 = ( a, b ) => { return a + b; };
+
+( ) => { /* Do function stuff here */ }
+
+arg1 => { /* Do function stuff here */ }
+
+( arg1 = 10 ) => { /* Do function stuff here */ }
+
+( arg1, arg2 ) => { 			 
+	console.log( `This is arg1: ${arg1}` );			  
+ 	console.log( `This is arg2: ${arg2}` );			  
+	/* Many more lines of code can go here */			
+}
+
+( num1, num2 ) => { return ( num1 + num2 ) }
+
+( num1, num2 ) => num1 + num2
+
+( numArray ) => numArray.filter( n => n > 5).map( n => n - 1 ).every( n => n < 10 )
+```
+
+#### Template Literals
+
+- Template literals are a new form of string that was introduced in ECMAScript 6. They are enclosed by the backtick symbol (``) instead of the usual single or double quotes. 
+- Template literals allow you to embed expressions in the string that are evaluated at runtime. Thus, we can easily create dynamic strings from variables and variable expressions. These expressions are denoted with the dollar sign and curly braces (${ expression }). The template literal syntax is shown in the following code:
+```
+const example = "pretty";
+
+console.log( `Template literals are ${ example } useful!!!` );
+
+// Expected output: Template literals are pretty useful!!!
+```
+
+- A more advanced form of template literals are tagged template literals. Tagged template literals can be parsed with a special function called tag functions, and can return a manipulated string or any other value.
+
+```
+// Define the tag function
+
+function tagFunction( strings, numExp, fruitExp ) {
+
+  const str0 = strings[0]; // "We have"
+
+  const str1 = strings[1]; // " of "
+
+  const quantity = numExp < 10 ? 'very few' : 'a lot';
+
+  return str0 + quantity + str1 + fruitExp + str2;
+
+}
+
+const fruit = 'apple', num = 8;
+
+// Note: lack of parenthesis or whitespace when calling tag function
+
+const output = tagFunction`We have ${num} of ${fruit}. Exciting!`
+
+console.log( output )
+
+// Expected output: We have very few of apples. Exciting!!
+```

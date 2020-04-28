@@ -199,3 +199,26 @@ console.log( output )
 
 // Expected output: We have very few of apples. Exciting!!
 ```
+
+- When object is passed in to a function then its properties are evaluated inside the functions expression.
+```
+function parseHouse( property ) {
+
+ return `${property.owner} is selling the property at ${property.address} for ${property.price} USD`
+
+}
+
+const house = {
+
+ address: "123 Main St, San Francisco CA, USA",
+
+ floors: 2,
+
+ price: 5000000,
+
+ owner: "John Doe"
+
+};
+
+console.log( parseHouse( house ) );
+```
